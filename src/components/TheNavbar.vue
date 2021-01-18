@@ -1,16 +1,16 @@
 <template>
 	<nav
-		class="flex items-center justify-between flex-wrap bg-teal-500 p-3 fixed w-full shadow"
+		class="flex items-center justify-between flex-wrap bg-yellow p-3 fixed w-full shadow"
 	>
 		<!-- Logo -->
 		<a @click="hideMenu()">
 			<router-link
 				to="/"
-				class="flex items-center flex-shrink-0 text-white mr-6 "
+				class="flex items-center flex-shrink-0 text-grey_500 mr-6 "
 			>
 				<Icon class="mr-2" />
 				<span class="font-semibold text-xl tracking-tight"
-					>CriptoData</span
+					>Cripto  Inversor</span
 				>
 			</router-link>
 		</a>
@@ -20,7 +20,7 @@
 			<button
 				@click="toggleMenu()"
 				type="button"
-				class="flex items-center text-teal-200 border-0 border-none"
+				class="flex items-center text-grey_500 border-0 border-none"
 			>
 				<svg
 					class="fill-current h-6 w-6"
@@ -58,7 +58,7 @@
 			<div class="text-sm lg:flex-grow">
 				<a
 					@click="hideMenu()"
-					class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
+					class="block mt-4 lg:inline-block lg:mt-0 text-grey_500 mr-4"
 				>
 					<router-link to="/dolar">
 						Dólar

@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div class="text-grey_500" id="app">
 		<TheNavbar />
 
 		<!-- Router view with padding top space by TheNavbar-->
@@ -22,6 +22,7 @@ export default {
 	position: relative;
 }
 body {
+	font-family: 'Poppins' , sans-serif;
 	background-color: rgba(209, 209, 209, 0.2);
 }
 </style>

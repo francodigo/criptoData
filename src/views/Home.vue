@@ -17,7 +17,7 @@
 		<div v-else class="flex justify-center">
 			<bounce-loader
 				:loading="isLoading"
-				:color="'rgba(56, 178, 172,1)'"
+				:color="'#FFF159'"
 				:size="100"
 			/>
 		</div>

@@ -3,7 +3,7 @@
 		<div class="flex justify-center">
 			<bounce-loader
 				:loading="isLoading"
-				:color="'rgba(56, 178, 172,1)'"
+				:color="'#FFF159'"
 				:size="100"
 			/>
 		</div>
@@ -74,7 +74,7 @@
 					class="my-10 sm:mt-0 flex flex-col justify-center text-center"
 				>
 					<button
-						class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+						class="bg-yellow text-grey_500 font-bold py-2 px-4 rounded"
 					>
 						Cambiar
 					</button>
