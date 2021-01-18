@@ -6,10 +6,10 @@
 		<a @click="hideMenu()">
 			<router-link
 				to="/"
-				class="flex items-center flex-shrink-0 text-grey_500 mr-6 "
+				class="flex items-center flex-shrink-0 text-grey_500 mr-24 "
 			>
 				<Icon class="mr-2" />
-				<span class="font-semibold text-xl tracking-tight"
+				<span class="font-medium text-xl tracking-tighter"
 					>Cripto  Inversor</span
 				>
 			</router-link>
