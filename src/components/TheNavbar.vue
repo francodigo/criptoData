@@ -10,7 +10,7 @@
 			>
 				<Icon class="mr-2" />
 				<span class="font-medium text-xl tracking-tighter"
-					>Cripto  Inversor</span
+					>Crypto  Inversor</span
 				>
 			</router-link>
 		</a>
