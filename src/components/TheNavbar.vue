@@ -1,95 +1,196 @@
 <template>
-	<nav
-		class="flex items-center justify-between flex-wrap bg-yellow p-3 fixed w-full shadow"
-	>
-		<!-- Logo -->
-		<a @click="hideMenu()">
-			<router-link
-				to="/"
-				class="flex items-center flex-shrink-0 text-grey_500 mr-24 "
-			>
-				<Icon class="mr-2" />
-				<span class="font-medium text-xl tracking-tighter"
-					>Crypto  Inversor</span
-				>
+	<nav class="navbar">
+		<div class="navbarContainer">
+			<router-link to='/' class="navbar__logo">
+				<IconLogo/>
+				<span>
+					Cripto Inversor
+				</span>	
 			</router-link>
-		</a>
-
-		<!-- Button Responsive -->
-		<div class="block lg:hidden">
-			<button
-				@click="toggleMenu()"
-				type="button"
-				class="flex items-center text-grey_500 border-0 border-none"
-			>
-				<svg
-					class="fill-current h-6 w-6"
-					viewBox="0 0 24 24"
-					xmlns="http://www.w3.org/2000/svg"
-				>
-					<title>Menu</title>
-					<path
-						v-if="!menuShow"
-						fill-rule="evenodd"
-						d="M3.314,4.8h13.372c0.41,0,0.743-0.333,0.743-0.743c0-0.41-0.333-0.743-0.743-0.743H3.314
-						c-0.41,0-0.743,0.333-0.743,0.743C2.571,4.467,2.904,4.8,3.314,4.8z
-						M16.686,15.2H3.314c-0.41,0-0.743,0.333-0.743,0.743
-						s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,15.2,16.686,15.2z
-						M16.686,9.257H3.314
-						c-0.41,0-0.743,0.333-0.743,0.743s0.333,0.743,0.743,0.743h13.372c0.41,0,0.743-0.333,0.743-0.743S17.096,9.257,16.686,9.257z"
-					/>
-					<path
-						v-if="menuShow"
-						fill-rule="evenodd"
-						d="M11.469,10l7.08-7.08c0.406-0.406,0.406-1.064,0-1.469c-0.406-0.406-1.063-0.406-1.469,0L10,8.53l-7.081-7.08
-							c-0.406-0.406-1.064-0.406-1.469,0c-0.406,0.406-0.406,1.063,0,1.469L8.531,10L1.45,17.081c-0.406,0.406-0.406,1.064,0,1.469
-							c0.203,0.203,0.469,0.304,0.735,0.304c0.266,0,0.531-0.101,0.735-0.304L10,11.469l7.08,7.081c0.203,0.203,0.469,0.304,0.735,0.304
-							c0.267,0,0.532-0.101,0.735-0.304c0.406-0.406,0.406-1.064,0-1.469L11.469,10z"
-					/>
-				</svg>
-			</button>
-		</div>
-
-		<!-- Menu Options Navigation -->
-		<div
-			class="w-full block flex-grow lg:flex lg:items-center lg:w-auto "
-			:class="menuShow ? 'block h-screen' : 'hidden'"
-		>
-			<div class="text-sm lg:flex-grow">
-				<a
-					@click="hideMenu()"
-					class="block mt-4 lg:inline-block lg:mt-0 text-grey_500 mr-4"
-				>
-					<router-link to="/dolar">
-						Dólar
-					</router-link>
-				</a>
-			</div>
+			<div class="navbar__mobileBtn" @click="toggleMenu()">
+                <IconifyIcon :icon="icons.menu" />
+            </div>
+            <ul class="navbarMenu">
+                <li class="navbar__item">
+                    <router-link to='/dolar' class="navbar__link">Dólar</router-link>
+                </li>
+                <li class="navbar__item">
+                    <router-link to='/criptos' class="navbar__link">Criptos</router-link>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link">Nosotros</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link">Unirse</a>
+                </li>
+            </ul>
+            <button class="navbar__btn">
+                <a class="navbar__btnLink" href="">
+                    Registrarse
+                </a>
+            </button>
 		</div>
 	</nav>
 </template>
 
 <script>
-import Icon from '@/components/Icon';
+import IconLogo from '@/components/IconLogo';
+// Import component
+import IconifyIcon from '@iconify/vue';
+import baselineMenu from '@iconify-icons/ic/baseline-menu';
+
 export default {
 	name: 'TheNavbar',
-	components: { Icon },
+    props:['showMenu'],
+	components: { IconLogo , IconifyIcon },
 	data() {
 		return {
-			menuShow: false,
+            icons:{
+                menu: baselineMenu
+            },
+            isOpen: this.$props.showMenu
 		};
 	},
-	methods: {
-		toggleMenu() {
-			this.menuShow = !this.menuShow;
-		},
-		hideMenu() {
-			if (this.menuShow == true) {
-				this.menuShow = false;
-			}
-		},
-	},
+    methods:{
+        toggleMenu(){
+            this.isOpen = !this.isOpen;
+            this.$emit('showMenu', this.isOpen)
+        }
+    }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.navbar{
+    background: #FFF13D;
+    height: 60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1rem;
+    position:sticky;
+    top: 0;
+    z-index:10;
+    font-family: Poppins;
+}
+
+@media screen and (max-width: 960px){
+    .navbar{
+        transition: 0.8s all ease;
+    }
+}
+
+.navbarContainer{
+    display:flex;
+    justify-content:space-between;
+    height: 60px;
+    z-index: 1;
+    width: 100%;
+    padding: 0 24px;
+    max-width: 1100px;
+}
+
+.navbar__logo{
+    display:flex;
+    color:#444;
+    justify-self:flex-start;
+    align-items:center;
+    cursor:pointer;
+    font-size: 1rem;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+.navbar__logo > span {
+    margin-left: 12px;
+}
+
+.navbar__mobileBtn{
+    display:none;
+}
+
+@media screen and (max-width: 768px)
+{
+    .navbar__mobileBtn{
+        color:#444;
+        display:flex;
+        align-items: center;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .navbarContainer{
+        padding: 0 20px;
+    }
+}
+
+.navbarMenu{
+    display:flex;
+    align-items:center;
+    list-style:none;
+    text-align: center;
+    margin-right: -22px;
+}
+
+@media screen and (max-width: 768px){
+    .navbarMenu{
+        display:none;
+    }
+}
+
+.navbar__item{
+    height:60px;
+}
+
+.navbar__link{
+    color: #444;
+    display:flex;
+    align-items:center;
+    text-decoration: none;
+    padding: 0 1rem;
+    height: 100%;
+    cursor:pointer; 
+    font-weight: 500;  
+    letter-spacing: -0.2px;
+}
+
+.navbar__link:active{
+    box-shadow: inset 0px -13px 0px -10px #444;
+}
+
+.navbar__btn{
+    display:flex;
+    align-items:center;
+    background:transparent;
+}
+
+@media screen and (max-width: 768px){
+    .navbar__btn{
+        display:none;
+
+    }
+}
+
+.navbar__btnLink{
+    border-radius:50px;
+    background:transparent;
+    white-space:nowrap;
+    padding:10px 22px;
+    color: #444;
+    font-size:16px;
+    outline:none;
+    cursor:pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration:none;
+	border:1px solid #444;
+    
+}
+
+.navbar__btnLink:hover{
+    transition: all 0.2s ease-in-out;
+    background: #444;
+    color: #FFF13D;
+}
+
+
+</style>

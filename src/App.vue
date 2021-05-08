@@ -1,9 +1,11 @@
 <template>
 	<div class="text-grey_500" id="app">
-		<TheNavbar />
+
+		<SideBar  :showMenu='showMenu' @showMenu = 'showMenu = $event' />
+		<TheNavbar :showMenu='showMenu' @showMenu = 'showMenu = $event'/>
 
 		<!-- Router view with padding top space by TheNavbar-->
-		<div class="pt-16">
+		<div class="">
 			<router-view></router-view>
 		</div>
 	</div>
@@ -11,9 +13,15 @@
 
 <script>
 import TheNavbar from '@/components/TheNavbar';
+import SideBar from '@/components/SideBar';
 export default {
 	name: 'App',
-	components: { TheNavbar },
+	components: { TheNavbar, SideBar },
+	data(){
+		return {
+			showMenu:false,
+		}
+	}
 };
 </script>
 
@@ -24,5 +32,6 @@ export default {
 body {
 	font-family: 'Poppins' , sans-serif;
 	background-color: rgba(209, 209, 209, 0.2);
+	-webkit-tap-highlight-color: transparent;
 }
 </style>

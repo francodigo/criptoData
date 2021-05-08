@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 /** Views */
-import Home from '@/views/Home';
+import Index from '@/views/Index';
+import Criptos from '@/views/Criptos';
 import Dolar from '@/views/Dolar';
 import CoinDetail from '@/views/CoinDetail';
 import Error from '@/views/Error';
@@ -14,8 +15,13 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
+			name: 'index',
+			component: Index,
+		},
+		{
+			path: '/criptos',
 			name: 'home',
-			component: Home,
+			component: Criptos,
 		},
 		{
 			path: '/dolar',
