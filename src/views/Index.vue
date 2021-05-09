@@ -3,7 +3,7 @@
         <section class="hero container">
         <div class="content">
             <div class="heroAction">
-                <h1>Formate online y aumentá tus ingresos</h1>
+                <h1>Formate online y potenciá tus ingresos</h1>
                 <p>Aprendé a ganarle a la inflación usando las mejores criptomonedas del mercado.</p>
                 <button class="btn btn-primary btn-sm">Comenzar</button>
             </div>
@@ -29,7 +29,7 @@ export default {
           surround: require('@/assets/img/surround.png'),
         },
         actualAsset: 1,
-        MAX_IMG_HERO : 5
+        MAX_IMG_HERO : 18
       }
     },
     computed:{
@@ -51,10 +51,6 @@ export default {
 }
 </script>
 
-/**6 === 5
-actualAssetl = 5
-i++
- */
 
 <style scoped>
 main{
@@ -76,9 +72,10 @@ main{
 .heroAction{
     display:flex;
     flex-direction: column;
-    height:200px;
+    height:250px;
     justify-content: space-around;
     align-items: flex-start;
+    padding: 50px 5px 0px 5px;
 }
 
 .heroAction h1{
