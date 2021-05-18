@@ -21,6 +21,11 @@ export default {
 		return {
 			showMenu:false,
 		}
+	},
+	methods:{
+		show(){
+			console.log('Franco');
+		}
 	}
 };
 </script>

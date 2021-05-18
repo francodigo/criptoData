@@ -78,6 +78,9 @@ export default {
     .navbar{
         transition: 0.8s all ease;
     }
+    .navbarContainer{
+        padding: 0 40px;
+    }
 }
 
 .navbarContainer{
@@ -87,7 +90,7 @@ export default {
     z-index: 1;
     width: 100%;
     padding: 0 24px;
-    max-width: 1100px;
+    max-width: 1440px;
 }
 
 .navbar__logo{
@@ -119,9 +122,6 @@ export default {
         cursor: pointer;
     }
 
-    .navbarContainer{
-        padding: 0 20px;
-    }
 }
 
 .navbarMenu{
@@ -192,5 +192,20 @@ export default {
     color: #FFF13D;
 }
 
+@media (min-width: 599px) and (max-width: 768px){
+    .navbarContainer{
+        padding: 0 50px;
+    }
+}
 
+@media (min-width: 769px) and (max-width: 1199px){
+    .navbarContainer{
+        padding: 0 50px;
+    }
+}
+@media (min-width: 1200px){
+    .navbarContainer{
+        padding: 0 210px;
+    }
+}
 </style>
